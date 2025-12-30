@@ -1,0 +1,25 @@
+STEP 1: Move project (IMPORTANT)
+Your current path has spaces:
+E:\projects\BSp
+
+STEP 2: Open terminal in NEW location
+Open CMD or PowerShell in:
+E:\projects\bsp-dashboard
+  
+STEP 3: Delete old installs (MANDATORY)
+Run these commands exactly:
+rmdir /s /q node_modules
+del package-lock.json
+  
+STEP 4: Install dependencies again
+npm install
+
+STEP 5: Install Vite correctly (THIS IS THE KEY STEP)
+npm install --save-dev vite @vitejs/plugin-react
+  
+STEP 6: Verify Vite EXISTS
+Run:
+npx vite --version
+  
+ STEP 8: Start project
+npm run dev
