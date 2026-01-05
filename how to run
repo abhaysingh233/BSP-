@@ -1,25 +1,59 @@
-STEP 1: Move project (IMPORTANT)
-Your current path has spaces:
-E:\projects\BSp
+1. SYSTEM REQUIREMENTS (MUST HAVE)
+Ask the other person to install these first:
+✅ Install Node.js
+Download from: https://nodejs.org
+Install LTS version
+Verify installation:
+node -v
+npm -v
+✅ Install Git (optional, but recommended)
+Download from: https://git-scm.com
+2. PROJECT STRUCTURE (IMPORTANT)
+After downloading/cloning, the folder structure must look like this:
+projects/
+ bsp dashboard/    ← FRONTEND (React)
+src/
+package.json
+vite.config.js
+bsp-backend/      ← BACKEND (Node.js)
+server.js
+package.json
 
-STEP 2: Open terminal in NEW location
-Open CMD or PowerShell in:
-E:\projects\bsp-dashboard
-  
-STEP 3: Delete old installs (MANDATORY)
-Run these commands exactly:
-rmdir /s /q node_modules
-del package-lock.json
-  
-STEP 4: Install dependencies again
+3. BACKEND SETUP & RUN (FIRST)
+🔹 Step 3.1: Open backend folder
+cd bsp-backend
+You should see:
+server.js
+package.json
+
+Step 3.3: Run backend server
+node server.js
+✅ Expected output:
+Backend running on http://localhost:8080
+
+FRONTEND SETUP & RUN (SECOND)
+🔹 Step 4.1: Open frontend folder (new terminal)
+cd "bsp dashboard"
+Step 4.2: Install frontend dependencies
 npm install
+🔹 Step 4.3: Install charts library (required)
+npm install recharts
 
-STEP 5: Install Vite correctly (THIS IS THE KEY STEP)
-npm install --save-dev vite @vitejs/plugin-react
-  
-STEP 6: Verify Vite EXISTS
-Run:
-npx vite --version
-  
- STEP 8: Start project
+Step 4.4: Check API configuration
+Open file:
+src/services/api.js
+
+It MUST be:
+import axios from "axios";
+export const api = axios.create({
+  baseURL: "http://localhost:8080"
+});
+
+Step 4.5: Run frontend
 npm run dev
+
+STOPPING THE PROJECT
+
+To stop:
+Press Ctrl + C in backend terminal
+Press Ctrl + C in frontend terminal
